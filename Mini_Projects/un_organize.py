@@ -2,7 +2,7 @@
 import os
 
 # Root directory for all the folders
-root = "C:\\Users\\webmaster\\Desktop\\Masters"
+root = "C:\\path\\to\\the\\files\\you\\want\\to\\sort"
 
 def un_organize(main_folder):
 
@@ -16,7 +16,7 @@ def un_organize(main_folder):
 	# Adding folders to the folders list
 	for name in files:
 		# For each file, check that it's not one of these files: 
-		if name == ".DS_Store" or name == "Thumbs.db" : 
+		if name == "file_to_ignore_1" or name == "file_to_ignore_2" : 
 			# If it is, go to the next file in the list
 			continue
 		folders.append(name)
@@ -29,7 +29,7 @@ def un_organize(main_folder):
 		files_in_folder = os.listdir(folder_path)
 		# For every file in the the current folder
 		for file in files_in_folder:
-			if file == ".DS_Store" or file == "Thumbs.db" : 
+			if file == "file_to_ignore_1" or file == "file_to_ignore_2" : 
 				# If it is, go to the next file in the list
 				continue
 			# Path to the current location of the file
@@ -48,5 +48,5 @@ def un_organize(main_folder):
 		os.rmdir(folder_path)
 
 # Calling the organize function for all the folders
-for year in range(2009, 2018):
-    un_organize(year)
+for folder in range(2009, 2018):
+    un_organize(folder)

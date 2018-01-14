@@ -7,7 +7,7 @@ Notice I do 2 loops, 1 is to create the directories,
 and the second is to organize the files in them.
 """
 # Root directory for all the folders
-root = "C:\\Users\\webmaster\\Desktop\\Masters"
+root = "C:\\path\\to\\the\\files\\you\\want\\to\\sort"
 """ 
 The orgnizing funciton
 @params : folder_name(str) -> The folder to organize the files in
@@ -21,7 +21,7 @@ def organize(folder_name):
     # Go over all the files
     for f in files:
         # For each file, check that it's not one of these files: 
-        if f == ".DS_Store" or f == "Thumbs.db" : 
+        if f == "file_to_ignore_1" or f == "file_to_ignore_2" : 
             # If it is, go to the next file in the list
             continue
         # Path to the current location of the file - needed for os.rename()
@@ -54,5 +54,5 @@ def organize(folder_name):
     print(os.listdir(path))
 
 # Calling the organize function for all the folders
-for year in range(2009, 2018):
-    organize(year)
+for folder in range(2009, 2018):
+    organize(folder)

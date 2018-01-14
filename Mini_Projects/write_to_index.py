@@ -2,7 +2,7 @@ from openpyxl import load_workbook
 import os
 
 # Root directory for all the folders
-root = "C:\\Users\\webmaster\\Desktop\\Masters"
+root = "C:\\path\\to\\the\\files\\you\\want\\to\\sort"
 
 # Loading the xlsx file 
 file = load_workbook(filename='index.xlsx')
@@ -12,10 +12,8 @@ worksheet = file['files']
 def write_to_index(r, root_folder):
 	# Current row counter
 	row = r
-
 	# writing current year in the 1s column (also 1st row of the year)
 	worksheet['A'+str(row)] = root_folder
-
 	# Root path for this folder
 	path = root + "\\" + str(root_folder)
 	# Getting the names of all the files in this folder
@@ -24,13 +22,12 @@ def write_to_index(r, root_folder):
 	for i in range(0, len(files)):
 		f = files[i]
 		# For each file, check that it's not one of these files: 
-		if f == ".DS_Store" or f == "Thumbs.db" : 
+		if f == "file_to_ignore_1" or f == "file_to_ignore_2" : 
 			# If it is, go to the next file in the list
 			continue 
 
 		# Getting the names of all the files in this folder
 		f_name = f.split(".")[0]
-
 		# Write the files' name in the xlsx sheet
 		# Also incremet row counter, to go to the next row in the xlsx
 		worksheet['B'+str(row)] = f_name
